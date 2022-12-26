@@ -1,7 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import React from 'react';
 
-function StaticExample() {
+function Work({data}) {
+   const onDelete = () => {
+    console.log ('deleted')
+   } ;
   return (
     <div
       className="modal show"
@@ -9,20 +13,21 @@ function StaticExample() {
     >
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+         
+          <Modal.Title><p>{data.title}</p></Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+          <p>{data.work}</p>
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save changes</Button>
+          
+          <Button variant="danger" onClick={onDelete}>Completed</Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
   );
 }
 
-export default StaticExample;
+export default Work;

@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function Example() {
+function Example({data}) {
+ 
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const pushData = () => data.push('{push}');
+  
 
   return (
     <>
@@ -18,15 +22,13 @@ function Example() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title><input class="form-control form-control-lg" type="text" placeholder="Youre Work Title Here"></input></Modal.Title>
+          <Modal.Title><input className="form-control form-control-lg" type="text" placeholder="Youre Work Title Here"></input></Modal.Title>
         </Modal.Header>
-        <Modal.Body><input class="form-control" type="text" placeholder="Type Here What You Wanna do"></input></Modal.Body>
+        <Modal.Body><input className="form-control"  type="text" placeholder="Type Here What You Wanna do"></input></Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          
+          <Button variant="primary" onClick={pushData}>
+            Add Work
           </Button>
         </Modal.Footer>
       </Modal>
