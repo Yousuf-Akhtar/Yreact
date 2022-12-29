@@ -22,7 +22,7 @@ function AddWorks({ addWork }) {
     <>
       <div className="text-center m-3">
         <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
+          Add Work Here
         </Button>
       </div>
 

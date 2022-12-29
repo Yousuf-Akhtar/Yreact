@@ -2,10 +2,16 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
 
-function Work({data}) {
+function Work({data }) {
    const onDelete = () => {
-    console.log ('deleted')
+    console.log (data.sno)
    } ;
+  //  function onDelete(sno){
+  //   setData([...data].filter(data => data.sno !== sno));
+  // };
+
+  
+
   return (
     <div
       className="modal show"
