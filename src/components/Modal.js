@@ -13,7 +13,7 @@ function Work({data, onDelete }) {
       style={{ display: 'block', position: 'initial' }}
     >
       <Modal.Dialog>
-        <Modal.Header closeButton>
+        <Modal.Header >
          
           <Modal.Title><p>{data.title}</p></Modal.Title>
         </Modal.Header>
@@ -24,7 +24,7 @@ function Work({data, onDelete }) {
 
         <Modal.Footer>
           
-          <Button variant="danger" onClick={()=>onDelete(data.sno)}>Completed</Button>
+          <Button variant="success" onClick={()=>onDelete(data.sno)}>Completed</Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
