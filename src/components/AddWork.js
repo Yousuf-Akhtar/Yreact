@@ -2,30 +2,24 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function AddWorks({addWork}) {
+function AddWorks({ addWork }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [title, setTitle] = useState("");
   const [work, setWork] = useState("");
-  function submit(){
+  function submit() {
     if (!title || !work) {
-      alert("Please add some Title or Work")
-      
+      alert("Please add some Title or Work");
+    } else {
+      addWork(title, work);
+      handleClose();
     }
-   console.log({addWork})
-
-
   }
 
-
-  
-
   return (
-
     <>
-    
       <div className="text-center m-3">
         <Button variant="primary" onClick={handleShow}>
           Launch demo modal
@@ -40,8 +34,9 @@ function AddWorks({addWork}) {
               type="text"
               placeholder="Youre Work Title Here"
               value={title}
-              onChange={(e)=>{setTitle(e.target.value)}} 
-              
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
             ></input>
           </Modal.Title>
         </Modal.Header>
@@ -51,7 +46,9 @@ function AddWorks({addWork}) {
             type="text"
             placeholder="Type Here What You Wanna do"
             value={work}
-            onChange={(e)=>{setWork(e.target.value)}}
+            onChange={(e) => {
+              setWork(e.target.value);
+            }}
           ></input>
         </Modal.Body>
         <Modal.Footer>
