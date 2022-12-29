@@ -5,7 +5,11 @@ import Modal from "react-bootstrap/Modal";
 function AddWorks({ addWork }) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setTitle("");
+    setWork("")
+  };
   const handleShow = () => setShow(true);
   const [title, setTitle] = useState("");
   const [work, setWork] = useState("");

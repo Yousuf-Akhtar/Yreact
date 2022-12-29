@@ -2,14 +2,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
 
-function Work({data }) {
-   const onDelete = () => {
-    console.log (data.sno)
-   } ;
-  //  function onDelete(sno){
-  //   setData([...data].filter(data => data.sno !== sno));
-  // };
-
+function Work({data, onDelete }) {
+  
+ 
   
 
   return (
@@ -29,7 +24,7 @@ function Work({data }) {
 
         <Modal.Footer>
           
-          <Button variant="danger" onClick={onDelete}>Completed</Button>
+          <Button variant="danger" onClick={()=>onDelete(data.sno)}>Completed</Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
