@@ -1,21 +1,20 @@
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import React from 'react';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import React from "react";
 
-function Work({data, onDelete }) {
-  
- 
-  
 
+
+function Work({ data, onDelete }) {
   return (
     <div
       className="modal show"
-      style={{ display: 'block', position: 'initial' }}
+      style={{ display: "block", position: "initial" }}
     >
       <Modal.Dialog>
-        <Modal.Header >
-         
-          <Modal.Title><p>{data.title}</p></Modal.Title>
+        <Modal.Header>
+          <Modal.Title>
+            <p>{data.title}</p>
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -23,8 +22,9 @@ function Work({data, onDelete }) {
         </Modal.Body>
 
         <Modal.Footer>
-          
-          <Button variant="success" onClick={()=>onDelete(data.sno)}>Completed</Button>
+          <Button variant="success" onClick={() => onDelete(data.sno)}>
+            Completed
+          </Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
@@ -32,3 +32,5 @@ function Work({data, onDelete }) {
 }
 
 export default Work;
+
+// return <h1  className="text-center m-3 text-white" >No Work Here</h1>
