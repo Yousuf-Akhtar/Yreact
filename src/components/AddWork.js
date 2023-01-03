@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddWorks({ addWork }) {
   const [show, setShow] = useState(false);
@@ -35,7 +36,7 @@ function AddWorks({ addWork }) {
       </div>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>
             <input
               className="form-control form-control-lg"
@@ -60,9 +61,13 @@ function AddWorks({ addWork }) {
           ></input>
         </Modal.Body>
         <Modal.Footer>
+        <Button variant="danger" onClick={handleClose}>
+            Close
+          </Button>
           <Button variant="primary" onClick={submit}>
             Add Work
           </Button>
+         
         </Modal.Footer>
       </Modal>
     </>

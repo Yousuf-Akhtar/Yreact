@@ -4,7 +4,7 @@ import Work from "./components/Modal";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, link } from "react-router-dom";
 
 function App() {
   // let iniData;
@@ -55,27 +55,22 @@ function App() {
         <CollapsibleExample />
 
         <Switch>
-        {/* <Route path="/">
-           
-          </Route> */}
-
-          <Route  path="/about">
-          <About />
+          <Route exact path="/">
+            <AddWorks addWork={addWork} />
+            {data.length > 0 ? (
+              data.map((d, i) => {
+                return <Work key={i} data={d} onDelete={deleteWork} />;
+              })
+            ) : (
+              <h1 className="text-center m-3 text-white">No Work Here</h1>
+            )}
           </Route>
-          
-          
+
+          <Route exact path="/about">
+            <About />
+          </Route>
         </Switch>
-        <AddWorks addWork={addWork} />
-        {data.length > 0 ? (
-          data.map((d, i) => {
-            return <Work key={i} data={d} onDelete={deleteWork} />;
-          })
-        ) : (
-          <h1 className="text-center m-3 text-white">No Work Here</h1>
-        )}
 
-
-        
         <Footer />
       </Router>
     </>
