@@ -4,24 +4,27 @@ import Work from "./components/Modal";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
-  // let iniData;
-  // if(localStorage.getItem("data")){
-  //   iniData=[]
-  // }
-  // else{
-  //   iniData=JSON.parse(localStorage.getItem("data"))
-  // }
+ 
   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const localStorageData = JSON.parse(localStorage.getItem('data'));
+    if(localStorageData){
+      setData(localStorageData)
+    }
+  }, []);
+
+
+  
 
   const addWork = (title, work) => {
     let sno;
     if (data.length > 0) {
       let previousSno = data[data.length - 1].sno;
       sno = previousSno + 1;
-      // localStorage.getItem("data");
     } else {
       sno = 1;
     }
@@ -31,8 +34,9 @@ function App() {
       work: work,
     };
     //  console.log(job)
-
-    setData([...data, job]);
+    
+    setData([...data, job])
+    localStorage.setItem('data', JSON.stringify([...data, job]));
     // if(localStorage.getItem("data")){
     //   localStorage.setItem("data",JSON.stringify(data))
     // }
@@ -41,12 +45,8 @@ function App() {
 
   const deleteWork = (sno) => {
     setData([...data].filter((data) => data.sno !== sno));
-    // localStorage.setItem("data",JSON.stringify(data));
+    localStorage.setItem("data",JSON.stringify([...data].filter((data) => data.sno !== sno)));
   };
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <>
